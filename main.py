@@ -8,9 +8,9 @@ from pydantic import BaseModel
 ###### Models #######
 
 # Load the tokenizer and model
-game_edit_tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
-game_edit_model = AutoModelForSequenceClassification.from_pretrained("AppOnboard/game_edit_classifier")
-game_edit_id2label = {0: "asset_behavior_manipulation", 1: "scene_management", 2: "entity_creation"}
+# game_edit_tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+# game_edit_model = AutoModelForSequenceClassification.from_pretrained("AppOnboard/game_edit_classifier")
+# game_edit_id2label = {0: "asset_behavior_manipulation", 1: "scene_management", 2: "entity_creation"}
 
 # Load the tokenizer and model
 intention_tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
@@ -43,7 +43,7 @@ def predict(user_input:UserInput):
     prediction_dict = make_prediction(user_input.user_input, intention_model, intention_tokenizer, intention_id2label)
     return prediction_dict
 
-@app.post("/game_edit_classifier")
-def predict(user_input:UserInput):
-    prediction_dict = make_prediction(user_input.user_input, game_edit_model, game_edit_tokenizer, game_edit_id2label)
-    return prediction_dict
+# @app.post("/game_edit_classifier")
+# def predict(user_input:UserInput):
+#     prediction_dict = make_prediction(user_input.user_input, game_edit_model, game_edit_tokenizer, game_edit_id2label)
+#     return prediction_dict
